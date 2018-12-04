@@ -1,0 +1,16 @@
+body {
+    background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%,rgba(0,0,0,0.1) 100%), url(assets/2656.jpg) no-repeat center center fixed
+}
+
+tr {
+    background-color: #00000073;
+    color: white;
+}
+
+tr:hover {
+    background-color: #eeeeee59;
+}
+
+h1 {
+    color: white;
+}

@@ -1,0 +1,103 @@
+<div class="row m-b-18px">
+    <div class="col-md-12">
+        <a (click)="readPlayers()" class='btn btn-primary pull-right'>
+            <span class='glyphicon glyphicon-list'></span> Back
+        </a>
+    </div>
+</div>
+ 
+<!-- HTML form for creating a player -->
+<div class="row">
+<div class="col-md-12">
+ 
+<!--
+    1. Bind our HTML form to Angular using [formGroup]
+    2. If form was submitted, call createplayer() method of CreateplayerComponent
+-->
+<form [formGroup]="create_player_form" (ngSubmit)="createPlayer()">
+<table class="table table-responsive table-bordered">
+    <tr>
+        <td>First name</td>
+        <td>
+            <input
+                formControlName="firstName"
+                name="firstName" type="text"
+                class="form-control" required />
+ 
+            <!-- show this error if the field is 'empty' and 'touched' -->
+            <div
+                *ngIf="create_player_form.get('firstName').touched && create_player_form.get('firstName').hasError('required')"
+                class="alert alert-danger">
+                First name is required.
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>Last name</td>
+        <td>
+            <input
+                formControlName="lastName"
+                name="lastName" type="text"
+                class="form-control" required />
+ 
+            <!-- show this error if the field is 'empty' and 'touched' -->
+            <div
+                *ngIf="create_player_form.get('lastName').touched && create_player_form.get('lastName').hasError('required')"
+                class="alert alert-danger">
+                Last name is required.
+            </div>
+        </td>
+    </tr>
+    
+    <tr>
+        <td>Age</td>
+        <td>
+            <input
+                formControlName="age"
+                type="number" name="age"
+                class="form-control" />
+        </td>
+    </tr>
+ 
+    <tr>
+        <td>Email</td>
+        <td>
+            <input
+                formControlName="emailAddress"
+                name="emailAddress" type="text"
+                class="form-control" required />
+ 
+            <!-- show this error if the field is 'empty' and 'touched' -->
+            <div
+                *ngIf="create_player_form.get('emailAddress').touched && create_player_form.get('emailAddress').hasError('required')"
+                class="alert alert-danger">
+                Last name is required.
+            </div>
+        </td>
+    </tr>
+ 
+    <tr>
+        <td>Skill level</td>
+        <td>
+            <select formControlName="skillLevel_id" name="skillLevel_id" class="form-control">
+                <option *ngFor="let skillLevel of skillLevels" value="{{skillLevel.id}}">
+                    {{skillLevel.name}}
+                </option>
+            </select>
+        </td>
+    </tr>
+ 
+    <tr>
+        <td></td>
+        <td>
+            <!-- disable the submit button if the form is 'invalid' -->
+            <button class="btn btn-primary" type="submit" [disabled]="create_player_form.invalid">
+                <span class="glyphicon glyphicon-plus"></span> Create
+            </button>
+        </td>
+    </tr>
+</table>
+</form>
+ 
+</div>
+</div>

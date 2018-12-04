@@ -1,0 +1,52 @@
+<!-- show page header -->
+<div class="row">
+    <div class="col-md-12">
+        <div class='page-header'>
+            <h1>Players</h1>
+        </div>
+    </div>
+</div>
+<div class="row m-b-18px">
+  <div class="col-md-12">
+      <!-- button to create new player -->
+      <button (click)="createPlayer()" _ngcontent-c2="" class="btn btn-primary" type="submit"><span _ngcontent-c2="" class="glyphicon glyphicon-plus"></span> New player </button>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+
+    <div class="table-responsive">
+      <!-- HTML table for our list of player records -->
+      <table class='table table-responsive table-bordered'>
+
+          <tr>
+              <th>First name</th>
+              <th>Last name</th>
+              <th>Age</th>
+              <th>Skill level</th>
+              <th>Email address</th>
+              <th class="col-sm-3"></th>
+          </tr>
+
+          <!-- Use *ngFor directive to loop throught our list of players. -->
+          <tr *ngFor="let player of players">
+              <td>{{player.firstName}}</td>
+              <td>{{player.lastName}}</td>
+              <td>{{player.age}}</td>
+              <td>{{player.skillLevel.name}}</td>
+              <td>{{player.emailAddress}}</td>
+              <td>
+                  <!-- read one player button -->
+                  <button (click)="readPlayer(player.playerId)" type="button" class="btn btn-default btn-sm margin-right-sm">
+                    <span class="glyphicon glyphicon-pencil"></span> Edit 
+                  </button>
+                  <button (click)="deletePlayer(player.playerId)" type="button" class="btn btn-default btn-sm margin-right-sm">
+                    <span class="glyphicon glyphicon-trash"></span> Delete 
+                  </button>
+              </td>
+          </tr>
+      </table>
+    </div>
+  </div>
+</div>

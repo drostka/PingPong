@@ -1,0 +1,12 @@
+<!-- container -->
+<div class="container">
+    <app-read-players
+    *ngIf="show_read_players_html"
+    (show_create_player_event)="showCreatePlayer($event)">
+    </app-read-players>
+    <app-create-player
+    *ngIf="show_create_player_html"
+    (show_read_players_event)="showReadPlayers($event)">
+    </app-create-player>
+</div>
+<!-- /container -->
